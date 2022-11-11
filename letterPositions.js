@@ -1,21 +1,6 @@
-const eqArrays = function(arr1, arr2) {
-  for (let i = 0; i < arr1.length; i++) {
-      if (arr1[i] !== arr2[i]) {
-        return false;
-      } 
-    }
-  return true;
-};
+const assertArraysEqual = require('./assertArraysEqual'); //import function assertArraysEqual
 
-const assertArraysEqual = function(arr1, arr2) {
-  if (eqArrays(arr1, arr2)) {
-    console.log(`✅✅✅ Assertion Passed: ${arr1} === ${arr2}`);
-  } else {
-    console.log(`🛑🛑🛑 Assertion Failed: ${arr1} !== ${arr2}`);
-  }
-};
-
-
+//function that stores indices of letters in a string in an obj's values with keys as the letters of the strings
 const letterPositions = function(sentence) {
   const results = {};
   for (let i = 0; i < sentence.length; i++) {
@@ -29,6 +14,9 @@ const letterPositions = function(sentence) {
   }
   return results;
 };
+
+module.exports = letterPositions;
+
 const expected = {
   h: [0],
   e: [1],

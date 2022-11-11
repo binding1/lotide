@@ -1,12 +1,6 @@
-const assertEqual = function(actual, expected) {
-  if (actual === expected) {
-    console.log(`✅✅✅ Assertion Passed: ${actual} === ${expected}`);
-  } else {
-    console.log(`🛑🛑🛑 Assertion Failed: ${actual} !== ${expected}`);
-  }
-};
+const assertEqual = require('./assertEqual.js'); //importing assertEqual function
 
-const countOnly = function (allItems, itemsToCount) {
+const countOnly = function (allItems, itemsToCount) { //function that counts number of occurences of an element that has value true in an array and adds them to an objec
   const results = {};
   for (let i = 0; i < allItems.length; i++) {
     for (k in itemsToCount) {
@@ -22,6 +16,8 @@ const countOnly = function (allItems, itemsToCount) {
   return results;
 };
 
+module.exports = countOnly; //exporting countOnly function
+
 const firstNames = [
   "Karl",
   "Salima",
@@ -36,7 +32,7 @@ const firstNames = [
 
 const result1 = countOnly(firstNames, { "Jason": true, "Karima": true, "Fang": true, "Agouhanna": false });
 
-assertEqual(result1["Jason"], 1);
-assertEqual(result1["Karima"], undefined);
-assertEqual(result1["Fang"], 2);
-assertEqual(result1["Agouhanna"], undefined);
+console.log(assertEqual(result1["Jason"], 1));
+console.log(assertEqual(result1["Karima"], undefined));
+console.log(assertEqual(result1["Fang"], 2));
+console.log(assertEqual(result1["Agouhanna"], undefined));

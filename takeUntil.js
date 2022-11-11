@@ -1,20 +1,9 @@
-const eqArrays = function(arr1, arr2) {
-  for (let i = 0; i < arr1.length; i++) {
-      if (arr1[i] !== arr2[i]) {
-        return false;
-      } 
-    }
-  return true;
-};
+//function that checks if two arrays are equal, imported
+const eqArrays = require('./eqArrays'); 
 
-const assertArraysEqual = function(arr1, arr2) {
-  if (eqArrays(arr1, arr2)) {
-    console.log(`✅✅✅ Assertion Passed: ${arr1} === ${arr2}`);
-  } else {
-    console.log(`🛑🛑🛑 Assertion Failed: ${arr1} !== ${arr2}`);
-  }
-};
+const assertArraysEqual = require('./assertArraysEqual'); //import function assertArraysEqual
 
+//function that logs elements until hitting a specified element
 const takeUntil = function(array, callback) {
   const result = [];
   for (let element of array) {
@@ -26,6 +15,8 @@ const takeUntil = function(array, callback) {
   }
   return result;
 };
+
+module.exports = takeUntil;
 
 const data1 = [1, 2, 5, 7, 2, -1, 2, 4, 5];
 const results1 = takeUntil(data1, x => x < 0);

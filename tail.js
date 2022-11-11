@@ -1,3 +1,4 @@
+//function that returns all elements except the first element of an array
 const tail = function(arr) {
   const newArr = [];
   for (let i = 1; i < arr.length; i++) {
@@ -6,4 +7,4 @@ const tail = function(arr) {
   return newArr;
 };
 
-module.exports = tail;
+module.exports = tail; //export tail function

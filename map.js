@@ -1,22 +1,11 @@
-const eqArrays = function(arr1, arr2) {
-  for (let i = 0; i < arr1.length; i++) {
-      if (arr1[i] !== arr2[i]) {
-        return false;
-      } 
-    }
-  return true;
-};
+//function that checks if two arrays are equal, imported
+const eqArrays = require('./eqArrays'); 
 
-const assertArraysEqual = function(arr1, arr2) {
-  if (eqArrays(arr1, arr2)) {
-    console.log(`✅✅✅ Assertion Passed: ${arr1} === ${arr2}`);
-  } else {
-    console.log(`🛑🛑🛑 Assertion Failed: ${arr1} !== ${arr2}`);
-  }
-};
+const assertArraysEqual = require('./assertArraysEqual'); //import function assertArraysEqual
 
 const words = ["ground", "control", "to", "major", "tom"];
 
+//function that acts as built in function maps
 const map = function(array, callback) {
   const results = [];
   for (let item of array) {
@@ -27,5 +16,7 @@ const map = function(array, callback) {
 
 const results1 = map(words, word => word[0]);
 console.log(results1);
+
+module.exports = map;
 
 assertArraysEqual(results1, ['g', 'c', 't', 'm', 't']);
